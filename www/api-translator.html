@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSweet sandbox: write Java, run JavaScript</title>
+
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="shortcut icon" href="logo.png">
+
+<link rel="stylesheet" id="bootstrap.css-css"
+	href="http://www.jsweet.org/wp-content/themes/devdmbootstrap3/css/bootstrap.css?ver=1"
+	type="text/css" media="all">
+<link rel="stylesheet" id="stylesheet-css"
+	href="http://www.jsweet.org/wp-content/themes/devdmbootstrap3/style.css?ver=1"
+	type="text/css" media="all">
+
+<link href='http://fonts.googleapis.com/css?family=Raleway'
+	rel='stylesheet' type='text/css' />
+<link href='codemirror/codemirror.css' rel='stylesheet' type='text/css' />
+<!-- <link href='codemirror/theme/mdn-like.css' rel='stylesheet'
+	type='text/css' /> -->
+
+<script src="jquery-1.11.3.min.js"></script>
+<script src="codemirror/codemirror.js"></script>
+<script src="codemirror/mode/javascript.js"></script>
+<script src="codemirror/mode/clike.js"></script>
+<script src="codemirror/addon/edit/matchbrackets.js"></script>
+
+<script src="js/org/jsweet/JSweetServerTranspilationResponse.js"></script>
+<script src="js/org/jsweet/JSweetPlayground.js"></script>
+
+<style type="text/css">
+.buttons {
+	float: right;
+}
+
+html, body {
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	padding-top: 0px;
+}
+
+#mainPanel {
+	height: 100%;
+}
+
+.CodeMirror {
+	height: calc(100vh - 105px);
+	border: 1px solid grey;
+	font-size: 13px;
+	line-height: 1.4em;
+}
+
+@media ( max-width : 1200px) {
+	.CodeMirror {
+		height: calc(50vh - 90px);
+	}
+	.js-col {
+		margin-top: 1em;
+	}
+}
+
+.name {
+	font-weight: bolder;
+}
+
+#jsweet-powered {
+	position: absolute;
+	bottom: 4px;
+	right: 15px;
+}
+</style>
+</head>
+<body>
+
+	<div id="mainPanel" class="jumbotron col-lg-12 candies-background"
+		style="margin-bottom: 0em">
+
+		<form method="POST" enctype="multipart/form-data"
+			action="/translated.d.ts.zip">
+			Upload a zip file containing your d.ts files: <input type="FILE"
+				name="upfile"><BR> <input type="SUBMIT"
+				value="Get translated Java API (zipped)">
+		</form>
+
+		<a id="jsweet-powered" href="http://www.jsweet.org"> <img
+			style="width: 100px"
+			src="http://www.jsweet.org/wp-content/logos/powered-by-jsweet-white-button.svg"
+			alt="Powered by JSweet" />
+		</a>
+
+	</div>
+</body>
+</html>
