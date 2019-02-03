@@ -1,5 +1,6 @@
 package org.jsweet.webapi;
 
+import java.util.Date;
 import org.apache.log4j.Logger;
 
 public class ServerLauncher {
@@ -7,7 +8,7 @@ public class ServerLauncher {
 	private final static Logger logger = Logger.getLogger(ServerLauncher.class);
 
 	public static void main(String[] args) {
-
+		System.out.println("ServerLauncher started at " + new Date());
 		logger.info("starting server");
 		Thread serverThread = new Thread() {
 			@Override
