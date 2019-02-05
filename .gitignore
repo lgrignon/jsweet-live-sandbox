@@ -1,6 +1,7 @@
-.js
+.classpath
+.settings
+.project
 .jsweet
-.ts
 bin
 build
 target
