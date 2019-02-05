@@ -197,13 +197,10 @@
 			<artifactId>jsweet-def-translators</artifactId>
 			<version>1.1.0-SNAPSHOT</version>
 		</dependency>
-		<!-- Compile-time only dependency (JSweet looks up installed JDK at runtime 
-			to conform to legal obligations) -->
 		<dependency>
 			<groupId>com.sun</groupId>
 			<artifactId>tools</artifactId>
 			<version>8</version>
-			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>
