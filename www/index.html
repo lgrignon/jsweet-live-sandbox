@@ -96,7 +96,7 @@ body {
 			</div>
 		<textarea id="javaEditor">package org.jsweet;
 
-import static jsweet.dom.Globals.*;
+import static def.dom.Globals.*;
 
 /**
  * This is a very simple example that just shows an alert.
@@ -138,7 +138,7 @@ public class HelloWorld {
 		<div style="display:none">
 		<div id="example1"><!--package org.jsweet;
 
-import static jsweet.dom.Globals.*;
+import static def.dom.Globals.*;
 
 /**
  * This is a very simple example that just shows an alert.
@@ -151,8 +151,8 @@ public class HelloWorld {
 
 		<div id="example2"><!--package org.jsweet;
 
-import static jsweet.dom.Globals.*;
-import jsweet.dom.HTMLElement;
+import static def.dom.Globals.*;
+import def.dom.HTMLElement;
 
 /**
  * This example shows an alert when clicking on a button.
@@ -171,10 +171,10 @@ public class HelloWorld {
 
 		<div id="example3"><!--package org.jsweet;
 
-import static jsweet.dom.Globals.*;
+import static def.dom.Globals.*;
 import static def.jquery.Globals.$;
-import static jsweet.util.Globals.function;
-import jsweet.dom.HTMLAnchorElement;
+import static jsweet.util.Lang.function;
+import def.dom.HTMLAnchorElement;
 import jsweet.util.StringTypes;
 
 /**
@@ -200,16 +200,16 @@ public class HelloWorld {
 
 		<div id="example4"><!--package quickstart;
 
-import static jsweet.dom.Globals.alert;
-import static jsweet.dom.Globals.console;
-import static jsweet.dom.Globals.document;
+import static def.dom.Globals.alert;
+import static def.dom.Globals.console;
+import static def.dom.Globals.document;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import jsweet.dom.HTMLAnchorElement;
-import jsweet.dom.HTMLLIElement;
-import jsweet.dom.HTMLUListElement;
+import def.dom.HTMLAnchorElement;
+import def.dom.HTMLLIElement;
+import def.dom.HTMLUListElement;
 import jsweet.util.StringTypes;
 
 /**
@@ -250,14 +250,14 @@ public class ComplementaryColors {
 
 		<div id="example5"><!--package animation;
 
-import static jsweet.dom.Globals.window;
-import static jsweet.dom.Globals.document;
-import static jsweet.util.Globals.number;
+import static def.dom.Globals.window;
+import static def.dom.Globals.document;
+import static jsweet.util.Lang.number;
 import jsweet.util.StringTypes;
-import jsweet.dom.HTMLElement;
-import jsweet.dom.HTMLImageElement;
-import jsweet.dom.MouseEvent;
-import jsweet.lang.Math;
+import def.dom.HTMLElement;
+import def.dom.HTMLImageElement;
+import def.dom.MouseEvent;
+import def.js.Math;
 
 /**
  * This example makes the JSweet logo rotate (hack for 3D-looking).
@@ -286,63 +286,24 @@ public class RotateLogo {
 		
 		<div id="example6"><!--package org.jsweet.examples.raytracer;
 
-import static jsweet.dom.Globals.console;
-import static jsweet.dom.Globals.document;
-import static jsweet.dom.Globals.window;
-import static jsweet.lang.Globals.Infinity;
-import static jsweet.util.Globals.array;
-import static jsweet.util.Globals.union;
+import static def.dom.Globals.console;
+import static def.dom.Globals.document;
+import static def.dom.Globals.window;
+import static def.js.Globals.Infinity;
+import static jsweet.util.Lang.array;
+import static jsweet.util.Lang.union;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-import jsweet.dom.CanvasRenderingContext2D;
-import jsweet.dom.HTMLCanvasElement;
-import jsweet.lang.Math;
-import jsweet.lang.String;
+import def.dom.CanvasRenderingContext2D;
+import def.dom.HTMLCanvasElement;
+import def.js.Array;
+import def.js.Math;
+import def.js.String;
 import jsweet.util.StringTypes;
+import jsweet.util.function.Function4;
 import jsweet.util.function.TriFunction;
-
-/**
- * This program creates a Scene and renders it on a canvas using a typical ray tracing algorithm.
- * 
- * NOTE: In JSweet Globals classes define global functions and variables.
- */
-class Globals {
-
-	/**
-	 * You can edit this function to change the scene.
-	 */
-	static Scene defaultScene() {
-		return new Scene(
-				new Thing[] { new Plane(new Vector(0.0, 1.0, 0.0), 0.0, Surfaces.checkerboard), new Sphere(new Vector(0.0, 1.0, -0.25), 1.0, Surfaces.shiny),
-						new Sphere(new Vector(-1.0, 0.5, 1.5), 0.5, Surfaces.shiny) },
-				new Light[] { new Light(new Vector(-2.0, 2.5, 0.0), new Color(0.49, 0.07, 0.07)),
-						new Light(new Vector(1.5, 2.5, 1.5), new Color(0.07, 0.07, 0.49)), new Light(new Vector(1.5, 2.5, -1.5), new Color(0.07, 0.49, 0.071)),
-						new Light(new Vector(0.0, 3.5, 0.0), new Color(0.21, 0.21, 0.35)) },
-				new Camera(new Vector(3.0, 2.0, 4.0), new Vector(-1.0, 0.5, 0.0)));
-	}
-
-    /**
-     * The program entry point: edit to change the layout and the rendering resolution.
-     */
-	static void main() {
-	    // the size gives the ray tracer resolution (warning: this is exponential so it will get very slow after 1024)
-		int size = 256;
-		double windowSize = Math.min(window.innerWidth, window.innerHeight);
-		HTMLCanvasElement canv = document.createElement(StringTypes.canvas);
-		canv.width = size;
-		canv.height = size;
-		canv.style.transform="scale("+(windowSize / size)+","+(windowSize / size)+")";
-		canv.style.transformOrigin="0 0";
-		console.log("transform="+canv.style.transform);
-		document.body.appendChild(canv);
-		CanvasRenderingContext2D ctx = canv.getContext(StringTypes._2d);
-		RayTracer rayTracer = new RayTracer();
-		rayTracer.render(defaultScene(), ctx, size, size);
-	}
-
-}
 
 class Vector {
 	public double x;
@@ -418,7 +379,8 @@ class Color {
 
 	static Color toDrawingColor(Color c) {
 		Function<Double, Double> legalize = d -> d > 1 ? 1 : d;
-		return new Color(Math.floor(legalize.apply(c.r) * 255), Math.floor(legalize.apply(c.g) * 255), Math.floor(legalize.apply(c.b) * 255));
+		return new Color(Math.floor(legalize.apply(c.r) * 255), Math.floor(legalize.apply(c.g) * 255),
+				Math.floor(legalize.apply(c.b) * 255));
 	}
 }
 
@@ -462,7 +424,8 @@ class Intersection {
 
 class Surface {
 
-	public Surface(Function<Vector, Color> diffuse, Function<Vector, Color> specular, Function<Vector, Double> reflect, double roughness) {
+	public Surface(Function<Vector, Color> diffuse, Function<Vector, Color> specular, Function<Vector, Double> reflect,
+			double roughness) {
 		this.diffuse = diffuse;
 		this.specular = specular;
 		this.reflect = reflect;
@@ -636,8 +599,10 @@ class RayTracer {
 		Vector pos = Vector.plus(Vector.times(isect.dist, d), isect.ray.start);
 		Vector normal = isect.thing.normal(pos);
 		Vector reflectDir = Vector.minus(d, Vector.times(2, Vector.times(Vector.dot(normal, d), normal)));
-		Color naturalColor = Color.plus(Color.background, this.getNaturalColor(isect.thing, pos, normal, reflectDir, scene));
-		Color reflectedColor = (depth >= this.maxDepth) ? Color.grey : this.getReflectionColor(isect.thing, pos, normal, reflectDir, scene, depth);
+		Color naturalColor = Color.plus(Color.background,
+				this.getNaturalColor(isect.thing, pos, normal, reflectDir, scene));
+		Color reflectedColor = (depth >= this.maxDepth) ? Color.grey
+				: this.getReflectionColor(isect.thing, pos, normal, reflectDir, scene, depth);
 		return Color.plus(naturalColor, reflectedColor);
 	}
 
@@ -646,7 +611,7 @@ class RayTracer {
 	}
 
 	private Color getNaturalColor(Thing thing, Vector pos, Vector norm, Vector rd, Scene scene) {
-		BiFunction<Color, Light, Color> addLight = (col, light) -> {
+		Function4<Color, Light, Double, Array<Light>, Color> addLight = (col, light, __, ___) -> {
 			Vector ldis = Vector.minus(light.pos, pos);
 			Vector livec = Vector.norm(ldis);
 			Double neatIsect = this.testRay(new Ray(pos, livec), scene);
@@ -657,24 +622,25 @@ class RayTracer {
 				double illum = Vector.dot(livec, norm);
 				Color lcolor = (illum > 0) ? Color.scale(illum, light.color) : Color.defaultColor;
 				double specular = Vector.dot(livec, Vector.norm(rd));
-				Color scolor = (specular > 0) ? Color.scale(Math.pow(specular, thing.surface.roughness), light.color) : Color.defaultColor;
-				return Color.plus(col,
-						Color.plus(Color.times(thing.surface.diffuse.apply(pos), lcolor), Color.times(thing.surface.specular.apply(pos), scolor)));
+				Color scolor = (specular > 0) ? Color.scale(Math.pow(specular, thing.surface.roughness), light.color)
+						: Color.defaultColor;
+				return Color.plus(col, Color.plus(Color.times(thing.surface.diffuse.apply(pos), lcolor),
+						Color.times(thing.surface.specular.apply(pos), scolor)));
 			}
 		};
-		return array(scene.lights).reduce(addLight, Color.defaultColor);
+		return array(scene.lights).<Color>reduceCallbackfnUUFunction4(addLight, Color.defaultColor);
 	}
 
 	void render(Scene scene, CanvasRenderingContext2D ctx, int screenWidth, int screenHeight) {
 		TriFunction<Double, Double, Camera, Vector> getPoint = (x, y, camera) -> {
 			Function<Double, Double> recenterX = (x2) -> {
-				return (x2 - (screenWidth / 2.0)) / 2.0 / screenWidth;
+				return ((x2 - (screenWidth / 2.0)) / 2.0 / screenWidth);
 			};
 			Function<Double, Double> recenterY = (y2) -> {
 				return -((y2 - (screenHeight / 2.0)) / 2.0 / screenHeight);
 			};
-			return Vector.norm(
-					Vector.plus(camera.forward, Vector.plus(Vector.times(recenterX.apply(x), camera.right), Vector.times(recenterY.apply(y), camera.up))));
+			return Vector.norm(Vector.plus(camera.forward, Vector.plus(Vector.times(recenterX.apply(x), camera.right),
+					Vector.times(recenterY.apply(y), camera.up))));
 		};
 		for (double y = 0; y < screenHeight; y++) {
 			for (double x = 0; x < screenWidth; x++) {
@@ -685,6 +651,37 @@ class RayTracer {
 			}
 		}
 	}
+}
+
+class Globals {
+
+	static Scene defaultScene() {
+		return new Scene(
+				new Thing[] { new Plane(new Vector(0.0, 1.0, 0.0), 0.0, Surfaces.checkerboard),
+						new Sphere(new Vector(0.0, 1.0, -0.25), 1.0, Surfaces.shiny),
+						new Sphere(new Vector(-1.0, 0.5, 1.5), 0.5, Surfaces.shiny) },
+				new Light[] { new Light(new Vector(-2.0, 2.5, 0.0), new Color(0.49, 0.07, 0.07)),
+						new Light(new Vector(1.5, 2.5, 1.5), new Color(0.07, 0.07, 0.49)),
+						new Light(new Vector(1.5, 2.5, -1.5), new Color(0.07, 0.49, 0.071)),
+						new Light(new Vector(0.0, 3.5, 0.0), new Color(0.21, 0.21, 0.35)) },
+				new Camera(new Vector(3.0, 2.0, 4.0), new Vector(-1.0, 0.5, 0.0)));
+	}
+
+	static void main() {
+		int size = 256;
+		double windowSize = Math.min(window.innerWidth, window.innerHeight);
+		HTMLCanvasElement canv = document.createElement(StringTypes.canvas);
+		canv.width = size;
+		canv.height = size;
+		canv.style.transform = "scale(" + (windowSize / size) + "," + (windowSize / size) + ")";
+		canv.style.transformOrigin = "0 0";
+		console.log("transform=" + canv.style.transform);
+		document.body.appendChild(canv);
+		CanvasRenderingContext2D ctx = canv.getContext(StringTypes._2d);
+		RayTracer rayTracer = new RayTracer();
+		rayTracer.render(defaultScene(), ctx, size, size);
+	}
+
 }--></div>
 		
 	</div>
