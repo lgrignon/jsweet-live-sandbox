@@ -5,26 +5,29 @@ package org.jsweet;
 
 import static def.codemirror.codemirror.Globals.fromTextArea;
 import static def.jquery.Globals.$;
-import static jsweet.dom.Globals.console;
-import static jsweet.dom.Globals.document;
-import static jsweet.dom.Globals.alert;
-import static jsweet.util.Globals.array;
-import static jsweet.util.Globals.number;
-import static jsweet.util.Globals.string;
+import static def.dom.Globals.console;
+import static def.dom.Globals.document;
+import static def.dom.Globals.alert;
+import static jsweet.util.Lang.number;
+import static jsweet.util.Lang.array;
+import static jsweet.util.Lang.string;
+import static jsweet.util.Lang.union;
 
 import java.util.function.Supplier;
 
 import def.codemirror.codemirror.EditorConfiguration;
 import def.codemirror.codemirror.EditorFromTextArea;
-import jsweet.dom.Event;
-import jsweet.dom.FormData;
-import jsweet.dom.HTMLFormElement;
-import jsweet.dom.HTMLInputElement;
-import jsweet.dom.HTMLSelectElement;
-import jsweet.dom.HTMLTextAreaElement;
-import jsweet.dom.XMLHttpRequest;
-import jsweet.lang.JSON;
-import jsweet.lang.Math;
+import def.codemirror.codemirror.KeyMap;
+import def.dom.Element;
+import def.dom.Event;
+import def.dom.FormData;
+import def.dom.HTMLFormElement;
+import def.dom.HTMLInputElement;
+import def.dom.HTMLSelectElement;
+import def.dom.HTMLTextAreaElement;
+import def.dom.XMLHttpRequest;
+import def.js.JSON;
+import def.js.Math;
 
 /**
  * Editor controller
@@ -67,12 +70,12 @@ class JSweetLiveEditor {
 		javaEditor = fromTextArea((HTMLTextAreaElement) document.getElementById("javaEditor"),
 				new EditorConfiguration() {
 					{
-						extraKeys = new Object() {
+						extraKeys = union(new KeyMap() {
 							{
 								$set("Ctrl-S", onEditorSaved);
 								$set("Cmd-S", onEditorSaved);
 							}
-						};
+						});
 						mode = "text/x-java";
 						lineNumbers = true;
 						lineWrapping = false;
@@ -158,8 +161,8 @@ class JSweetLiveEditor {
 				}
 				messageColor = "red";
 
-				jsContent = array(response.errors).join("\n");
-				tsContent = array(response.errors).join("\n");
+				jsContent = string(array(response.errors).join("\n"));
+				tsContent = string(array(response.errors).join("\n"));
 			}
 
 			setJsMessage(messageColor, message);
@@ -235,7 +238,9 @@ class JSweetLiveEditor {
 
 	public void run() {
 		((HTMLInputElement) document.getElementById("codeToRun")).value = jsCode;
-		((HTMLFormElement) document.forms.item("run")).submit();
+
+		HTMLFormElement runForm = (HTMLFormElement) document.querySelector("form[name='run']");
+		runForm.submit();
 	}
 
 	public void selectExample(Event event) {

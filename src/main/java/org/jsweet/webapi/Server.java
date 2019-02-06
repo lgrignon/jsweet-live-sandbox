@@ -31,6 +31,7 @@ import org.jsweet.JSweetServerTranspilationResponse;
 import org.jsweet.input.typescriptdef.TypescriptDef2Java;
 import org.jsweet.input.typescriptdef.ast.Context;
 import org.jsweet.transpiler.EcmaScriptComplianceLevel;
+import org.jsweet.transpiler.JSweetFactory;
 import org.jsweet.transpiler.JSweetProblem;
 import org.jsweet.transpiler.JSweetTranspiler;
 import org.jsweet.transpiler.ModuleKind;
@@ -395,8 +396,9 @@ public class Server extends NanoHTTPD {
 		logger.debug("enableAssertions: " + enableAssertions);
 		logger.debug("encoding: " + encoding);
 		logger.debug("jdkHome: " + jdkHome);
+		logger.debug("classPath: " + classPath);
 
-		JSweetTranspiler transpiler = new JSweetTranspiler(workingDir, tsOut, jsOut, new File(WWW_DIR + "/js"),
+		JSweetTranspiler transpiler = new JSweetTranspiler(new JSweetFactory(), tsOut, jsOut, new File(WWW_DIR + "/js"),
 				classPath);
 		transpiler.setTscWatchMode(false);
 		transpiler.setEcmaTargetVersion(targetVersion);
