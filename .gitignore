@@ -6,3 +6,6 @@ bin
 build
 target
 www/js/
+.idea
+*.iml
+.DS_Store
