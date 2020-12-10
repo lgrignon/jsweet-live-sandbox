@@ -9,3 +9,4 @@ www/js/
 .idea
 *.iml
 .DS_Store
+nohup.out
