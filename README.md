@@ -1,4 +1,5 @@
-# jsweet-live-sandbox
+# jsweet-live-sandbox ![CI](https://github.com/lgrignon/jsweet-live-sandbox/workflows/CI/badge.svg)
+
 Online playground for JSweet. Ideal to try JSweet without having to install anything.
 
 ## Compile
