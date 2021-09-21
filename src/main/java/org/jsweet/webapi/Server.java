@@ -147,7 +147,7 @@ public class Server extends NanoHTTPD {
 		}
 		logger.info("parmsNames=" + session.getParms().keySet());
 		return newFixedLengthResponse(
-				"<html><head><script src=\"jquery-1.11.3.min.js\"></script><script src=\"js/j4ts-0.3.0-SNAPSHOT/bundle.js\"></script></head><body><script>"
+				"<html><head><script src=\"jquery-1.11.3.min.js\"></script><script src=\"https://github.com/j4ts/j4ts/raw/2.0.0/dist/j4ts.js\"></script></head><body><script>"
 						+ session.getParms().get("code") + "</script></body></html>");
 	}
 
