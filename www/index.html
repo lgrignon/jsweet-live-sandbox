@@ -8,10 +8,10 @@
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="shortcut icon" href="logo.png">
 
-<link rel="stylesheet" id="bootstrap.css-css" href="http://www.jsweet.org/wp-content/themes/devdmbootstrap3/css/bootstrap.css?ver=1" type="text/css" media="all">
-<link rel="stylesheet" id="stylesheet-css" href="http://www.jsweet.org/wp-content/themes/devdmbootstrap3/style.css?ver=1" type="text/css" media="all">
+<link rel="stylesheet" id="bootstrap.css-css" href="//www.jsweet.org/wp-content/themes/devdmbootstrap3/css/bootstrap.css?ver=1" type="text/css" media="all">
+<link rel="stylesheet" id="stylesheet-css" href="//www.jsweet.org/wp-content/themes/devdmbootstrap3/style.css?ver=1" type="text/css" media="all">
 
-<link href='http://fonts.googleapis.com/css?family=Raleway'
+<link href='//fonts.googleapis.com/css?family=Raleway'
 	rel='stylesheet' type='text/css' />
 <link href='codemirror/codemirror.css' rel='stylesheet' type='text/css' />
 <!-- <link href='codemirror/theme/mdn-like.css' rel='stylesheet'
@@ -129,8 +129,8 @@ public class HelloWorld {
 </div>
 </div>
 
-<a id="jsweet-powered" href="http://www.jsweet.org">
-  <img style="width:100px" src="http://www.jsweet.org/wp-content/logos/powered-by-jsweet-white-button.svg" alt="Powered by JSweet" />
+<a id="jsweet-powered" href="https://www.jsweet.org">
+  <img style="width:100px" src="https://www.jsweet.org/wp-content/logos/powered-by-jsweet-white-button.svg" alt="Powered by JSweet" />
 </a>
 
 <!-- EXAMPLES -->
@@ -184,7 +184,7 @@ public class HelloWorld {
 	public static void main(String[] args) {
 		HTMLAnchorElement a = document.createElement(StringTypes.a);
 		a.innerHTML = "Click me!";
-		a.href = "http://www.jsweet.org/";
+		a.href = "https://www.jsweet.org/";
 		document.body.appendChild(a);
 		$(document).ready(() -> {
 			console.info("starting JQuery example");
@@ -267,7 +267,7 @@ public class RotateLogo {
 	public static void main(String[] args) {
 		document.body.innerHTML = "<p>Click on the logo to make it rotate (multiple clicks makes it faster)...</p>";
 		HTMLImageElement image = (HTMLImageElement) document.createElement("img");
-		image.src = "http://www.jsweet.org/wp-content/themes/devdmbootstrap3/img/jsweet-logo-full.svg";
+		image.src = "//www.jsweet.org/wp-content/themes/devdmbootstrap3/img/jsweet-logo-full.svg";
 		image.addEventListener(StringTypes.mousedown, RotateLogo::animate);
 		document.body.appendChild(image);
 	}
