@@ -9,7 +9,7 @@
     <description>Online playground for JSweet. Ideal to try the technology without having to install anything.
     </description>
     <properties>
-        <jsweet.transpiler.version>3.0.0</jsweet.transpiler.version>
+        <jsweet.transpiler.version>3.1.0</jsweet.transpiler.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version.release>11</java.version.release>
         <java.version>1.${java.version.release}</java.version>
@@ -41,38 +41,38 @@
         <repository>
             <id>jsweet-central</id>
             <name>libs-release</name>
-            <url>http://repository.jsweet.org/artifactory/libs-release-local</url>
+            <url>https://repository.jsweet.org/artifactory/libs-release-local</url>
         </repository>
         <repository>
             <id>jsweet-external</id>
             <name>libs-release</name>
-            <url>http://repository.jsweet.org/artifactory/ext-release-local</url>
+            <url>https://repository.jsweet.org/artifactory/ext-release-local</url>
         </repository>
         <repository>
             <snapshots/>
             <id>jsweet-snapshots</id>
             <name>libs-snapshot</name>
-            <url>http://repository.jsweet.org/artifactory/libs-snapshot-local</url>
+            <url>https://repository.jsweet.org/artifactory/libs-snapshot-local</url>
         </repository>
         <repository>
             <releases/>
             <snapshots/>
             <id>cincheo</id>
             <name>cincheo</name>
-            <url>http://repository.jsweet.org/artifactory/cincheo</url>
+            <url>https://repository.jsweet.org/artifactory/cincheo</url>
         </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
             <id>jsweet-plugins-release</id>
             <name>plugins-release</name>
-            <url>http://repository.jsweet.org/artifactory/plugins-release-local</url>
+            <url>https://repository.jsweet.org/artifactory/plugins-release-local</url>
         </pluginRepository>
         <pluginRepository>
             <snapshots/>
             <id>jsweet-plugins-snapshots</id>
             <name>plugins-snapshot</name>
-            <url>http://repository.jsweet.org/artifactory/plugins-snapshot-local</url>
+            <url>https://repository.jsweet.org/artifactory/plugins-snapshot-local</url>
         </pluginRepository>
     </pluginRepositories>
 
